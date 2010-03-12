@@ -75,7 +75,18 @@ module ActiveMerchant
         :all => 'ALL'
       }
       
-      # TODO: get rates for "U.S. possessions and Trust Territories" like Guam, etc. via domestic rates API: http://www.usps.com/ncsc/lookups/abbr_state.txt
+      # Get rates for the following countries via domestic rates API
+      COUNTRY_CODES_FOR_DOMESTIC_RATES = [
+        'AS', # American Samoa
+        'GU', # Guam
+        'MH', # Marshall Islands
+        'FM', # Micronesia, Federated States of
+        'MP', # Northern Mariana Islands
+        'PR', # Puerto Rico
+        'US', # United States
+        'VI'  # Virgin Islands, U.S.
+      ]
+      
       # TODO: figure out how USPS likes to say "Ivory Coast"
       #
       # Country names:
@@ -155,7 +166,7 @@ module ActiveMerchant
         
         # domestic or international?
         
-        response = if ['US',nil].include?(destination.country_code(:alpha2))
+        response = if COUNTRY_CODES_FOR_DOMESTIC_RATES.include?(destination.country_code(:alpha2))
           us_rates(origin, destination, packages, options)
         else
           world_rates(origin, destination, packages, options)
