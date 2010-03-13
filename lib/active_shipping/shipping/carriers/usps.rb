@@ -82,6 +82,7 @@ module ActiveMerchant
         'MH', # Marshall Islands
         'FM', # Micronesia, Federated States of
         'MP', # Northern Mariana Islands
+#        'PW', # Palau
         'PR', # Puerto Rico
         'US', # United States
         'VI'  # Virgin Islands, U.S.

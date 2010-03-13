@@ -99,6 +99,19 @@ class USPSTest < Test::Unit::TestCase
     
   end
   
+  def test_domestic_rates_for_us_territories
+    [:american_samoa, :guam, :marshall_islands, :micronesia_federated_states, :northern_mariana_islands, :palau, :puerto_rico, :us_virgin_islands].each do |us_territory|
+    assert_nothing_raised(message = "Should find domestic rates when destination is #{us_territory}") do
+      response = @carrier.find_rates(
+                   @locations[:new_york],
+                   @locations[us_territory],
+                   @packages.values_at(:book,:wii),
+                   :test => true
+                 )
+      end
+    end
+  end
+  
   def test_international_thoroughly
     
     response = nil

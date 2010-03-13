@@ -158,8 +158,15 @@ module ActiveMerchant
                                       :state => 'NY',
                                       :address1 => '780 3rd Avenue',
                                       :address2 => 'Suite  2601',
-                                      :zip => '10017')
-                                      
+                                      :zip => '10017'),
+        :american_samoa               => Location.new(:country => 'AS', :zip => '96799'),
+        :guam                         => Location.new(:country => 'GU', :zip => '96910'),
+        :marshall_islands             => Location.new(:country => 'MH', :zip => '96960'),
+        :micronesia_federated_states  => Location.new(:country => 'FM', :zip => '96941'),
+        :northern_mariana_islands     => Location.new(:country => 'MP', :zip => '96951'),
+        :palau                        => Location.new(:country => 'PW', :zip => '96940'),
+        :puerto_rico                  => Location.new(:country => 'PR', :zip => '00901'),
+        :us_virgin_islands            => Location.new(:country => 'VI', :zip => '00830')
       }
       
     end
